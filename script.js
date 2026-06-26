@@ -1,148 +1,120 @@
-const startScreen =
-document.getElementById("startScreen");
+const startScreen=document.getElementById("startScreen");
+const quizScreen=document.getElementById("quizScreen");
 
-const quizScreen =
-document.getElementById("quizScreen");
+const questionEN=document.getElementById("questionEN");
+const questionAR=document.getElementById("questionAR");
 
-const resultScreen =
-document.getElementById("resultScreen");
+const answers=document.getElementById("answers");
 
-const startBtn =
-document.getElementById("startBtn");
+const current=document.getElementById("current");
 
-const questionEN =
-document.getElementById("questionEN");
+const progress=document.getElementById("progress");
 
-const questionAR =
-document.getElementById("questionAR");
+const startBtn=document.getElementById("startBtn");
 
-const answers =
-document.getElementById("answers");
+const nextBtn=document.getElementById("nextBtn");
 
-const current =
-document.getElementById("current");
+const prevBtn=document.getElementById("prevBtn");
 
-const progress =
-document.getElementById("progress");
+let currentQuestion=0;
 
-const nextBtn =
-document.getElementById("nextBtn");
+function showQuestion(){
 
-const prevBtn =
-document.getElementById("prevBtn");
+const q=
+questions[currentQuestion];
 
-let index = 0;
-
-function renderQuestion(){
-
-let q =
-questions[index];
-
-current.textContent =
-index + 1;
-
-progress.style.width =
-((index+1)
-/ questions.length
-*100)
-+"%";
-
-questionEN.textContent =
+questionEN.innerText=
 q.question_en;
 
-questionAR.textContent =
+questionAR.innerText=
 q.question_ar;
 
-answers.innerHTML =
-"";
+current.innerText=
+currentQuestion+1;
+
+progress.style.width=
+(
+(currentQuestion+1)
+/
+questions.length
+*100
+)+"%";
+
+answers.innerHTML="";
 
 q.answers.forEach(
-(answer)=>{
+(option)=>{
 
-const div =
+const btn=
 document.createElement(
-"div"
+"button"
 );
 
-div.className =
+btn.className=
 "answer";
 
-div.textContent =
-answer;
-
-div.onclick =
-()=>{
-
-document
-.querySelectorAll(
-".answer"
-)
-.forEach(
-e=>
-e.classList.remove(
-"selected"
-)
-);
-
-div.classList.add(
-"selected"
-);
-
-};
+btn.innerText=
+option;
 
 answers.appendChild(
-div
+btn
+
 );
 
 });
 
 }
 
-startBtn.onclick =
+startBtn.addEventListener(
+"click",
 ()=>{
 
-startScreen.classList.add(
-"hidden"
-);
+startScreen.style.display=
+"none";
 
 quizScreen.classList.remove(
 "hidden"
 );
 
-renderQuestion();
+showQuestion();
 
-};
+}
+);
 
-nextBtn.onclick =
+nextBtn.addEventListener(
+"click",
 ()=>{
 
 if(
-index
+currentQuestion
 <
 questions.length-1
 ){
 
-index++;
+currentQuestion++;
 
-renderQuestion();
+showQuestion();
 
 }
 
-};
+}
+);
 
-prevBtn.onclick =
+prevBtn.addEventListener(
+"click",
 ()=>{
 
 if(
-index
+currentQuestion
 >
 0
 ){
 
-index--;
+currentQuestion--;
 
-renderQuestion();
+showQuestion();
 
 }
 
-};
+}
+);
