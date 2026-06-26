@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Reading Questions Quiz</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- START SCREEN -->
+
+<section id="startScreen">
+
+<h1>📚 Reading Questions Quiz</h1>
+
+<p>
+70 Questions — Arabic & English
+</p>
+
+<div class="features">
+
+<div>✅ Multiple Choice (1–50)</div>
+
+<div>✅ True / False (51–70)</div>
+
+<div>🌙 Dark Mode</div>
+
+<div>📱 Mobile Friendly</div>
+
+</div>
+
+<button id="startBtn">
+
+Start Quiz
+
+</button>
+
+</section>
+
+<!-- QUIZ -->
+
+<section id="quizScreen" class="hidden">
+
+<header>
+
+<div id="counter">
+
+Question
+<span id="current">
+1
+</span>
+
+/ 70
+
+</div>
+
+<div id="progressBar">
+
+<div id="progress"></div>
+
+</div>
+
+</header>
+
+<div id="questionBox">
+
+<h2 id="questionEN">
+
+Loading...
+
+</h2>
+
+<h3 id="questionAR">
+
+...
+
+</h3>
+
+</div>
+
+<div id="answers">
+
+</div>
+
+<div class="nav">
+
+<button id="prevBtn">
+
+Previous
+
+</button>
+
+<button id="nextBtn">
+
+Next
+
+</button>
+
+</div>
+
+</section>
+
+<!-- RESULT -->
+
+<section id="resultScreen" class="hidden">
+
+<h1>
+
+🏆 Finished
+
+</h1>
+
+<h2 id="score">
+
+0 / 70
+
+</h2>
+
+<h3 id="percent">
+
+0%
+
+</h3>
+
+<div id="message">
+
+Excellent
+
+</div>
+
+<button id="reviewBtn">
+
+Review Answers
+
+</button>
+
+<button id="restartBtn">
+
+Restart
+
+</button>
+
+</section>
+
+</div>
+
+<script src="questions.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
